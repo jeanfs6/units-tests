@@ -31,10 +31,27 @@
   arrayGenerator('keys', { sum: 3, mult: 2, div: 1, sub: 0 }) // [ 'sum', 'mult', 'div', 'sub' ]
   arrayGenerator('values', { sum: 3, mult: 2, div: 1, sub: 0 }) // [ 3, 2, 1, 0 ]
   arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 }) // [ [ 'sum', 3 ], [ 'mult', 2 ], [ 'div', 1 ], [ 'sub', 0 ] ]
-*/
+// */
+// A função Math.floor arredodnda o número sempre para baixo
+const calculator = (number1, number2) => {
+  const operation = {
+    sum: number1 + number2,
+    mult: number1 * number2,
+    div: Math.floor(number1 / number2),
+    sub: number1 - number2,
+  };
+  return operation;
+};
+// console.log(calculator(7, 5));
 
-const calculator = (number1, number2) => {};
-
-const arrayGenerator = (type, object) => {};
-
+const arrayGenerator = (type, object) => {
+  if (type === 'keys') {
+     return Object.keys(object);
+  } if (type === 'values') {
+     return Object.values(object);
+  } if (type === 'entries') {
+    return Object.entries(object);
+  }
+};
+// console.log(arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 }));
 module.exports = { calculator, arrayGenerator };
