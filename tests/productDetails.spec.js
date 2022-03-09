@@ -28,13 +28,30 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
     // Teste se productDetails é uma função.
-    // Teste se o retorno da função é um array.
-    // Teste se o array retornado pela função contém dois itens dentro.
-    // Teste se os dois itens dentro do array retornado pela função são objetos.
-    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    // Teste se os dois productIds terminam com 123.
+    expect(typeof productDetails).toBe('function')
   });
+  it('Verifica se o retorno da função tem o comportamento de um array', () => {
+    // Teste se o retorno da função é um array.
+    expect(typeof productDetails('Alcool gel', 'Másccara')).toBe('object')
+  });
+  it('Verifica se o array retornado possui dois itens', () => {
+    // Teste se o array retornado pela função contém dois itens dentro.
+    expect(Object.keys(productDetails('Alcool gel', 'Másccara')).length).toEqual(2)
+  });
+  it('Verifica se o os dois itens dentro do array retornado pela função são objetos', () => {
+    // Teste se os dois itens dentro do array retornado pela função são objetos.
+    expect(typeof productDetails('Alcool gel', 'Másccara')[0]).toBe('object')
+    expect(typeof productDetails('Alcool gel', 'Másccara')[1]).toBe('object')
+  });
+  it('Verifica se quando passa parâmetros diferentes entre si, os dois objetos também são diferentes entre si', () => {
+    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
+    expect(productDetails('Alcool gel', 'Másccara')[0].name).not.toBe(productDetails('Alcool gel', 'Másccara')[1].name)
+  });
+  it('Verifica se o os dois productIds terminam com 123', () => {
+    // Teste se os dois productIds terminam com 123.
+    expect(productDetails('Alcool gel', 'Másccara')[0].details.productId).toBe('Alcool gel123')
+    expect(productDetails('Alcool gel', 'Máscara')[1].details.productId).toBe('Máscara123')
+  });
+
 });
