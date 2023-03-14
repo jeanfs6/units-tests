@@ -11,7 +11,8 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+// consigo pegar cada valor de um array (Dica do aluno Guilherme)
 const average = (array) => {
   if (array.some((numero) => typeof numero !== 'number')) {
     return undefined;

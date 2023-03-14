@@ -23,4 +23,5 @@ const createStudent = (nome) => {
   return data;
   };
   // console.log(createStudent('jean'));
+  // dúvida em como imprimir o objeto
 module.exports = createStudent;
